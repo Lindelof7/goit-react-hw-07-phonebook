@@ -24,10 +24,10 @@ export const ContactForm = () => {
     const addContact = (evt) => {
         evt.preventDefault();
 
-        // const newContact = {
-        //     name: evt.target.elements.name.value,
-        //     number: evt.target.elements.number.value,
-        // }
+        const newContact = {
+            name: evt.target.elements.name.value,
+            number: evt.target.elements.number.value,
+        }
 
         const findSame = contacts.find(contact => contact.name === evt.target.elements.name.value)
 
@@ -35,7 +35,7 @@ export const ContactForm = () => {
             return Report.failure('You have already added this contact')
         };
 
-        dispatch(addContactToStore({ Name, Number }))
+        dispatch(addContactToStore(newContact))
         setName('')
         setNumber('')
     }
