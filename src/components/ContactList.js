@@ -1,10 +1,10 @@
 import nextId from "react-id-generator";
 import css from './App.module.css'
-import { useDispatch } from 'react-redux'
-import { deleteContact } from "./redux/contactsSlice";
+import { useDispatch } from 'react-redux';
+import { deleteContact } from "./redux/api";
+
 
 export const ContactList = ({ filteredContacts }) => {
-
     const dispatch = useDispatch();
 
     return (<ul className={(css.contactList)}>{filteredContacts.map

@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types'
 import css from './App.module.css'
 import { useState } from "react";
-import nextId from "react-id-generator";
 import { Report } from 'notiflix/build/notiflix-report-aio';
-import { addContactToStore } from './redux/contactsSlice';
+import { addContactToStore } from './redux/api';
 import { useSelector, useDispatch } from 'react-redux'
+import { selectContacts } from './redux/selectors';
 
 export const ContactForm = () => {
     const [Name, setName] = useState('');
     const [Number, setNumber] = useState('');
 
-    const contacts = useSelector((state) => state.contacts)
+    const contacts = useSelector(selectContacts)
 
     const dispatch = useDispatch();
 
@@ -26,7 +26,6 @@ export const ContactForm = () => {
 
         const newContact = {
             name: evt.target.elements.name.value,
-            id: nextId(),
             number: evt.target.elements.number.value,
         }
 
